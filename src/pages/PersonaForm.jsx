@@ -23,7 +23,7 @@ function PersonaForm() {
         const persona = await getPersona(params.id);
         console.log(persona);
         setPersona({
-          username: persona.nombre,
+          username: persona.username,
           dni: persona.dni,
           email: persona.email,
           password: persona.password,
@@ -48,7 +48,7 @@ function PersonaForm() {
           } else {
             await createPersona(values);
           }
-          navigate("/personas");
+          navigate("/");
           setPersona({
             username: "",
             dni: "",
@@ -62,7 +62,7 @@ function PersonaForm() {
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
           <Form onSubmit={handleSubmit}>
-            <h1>{params.id ? "Editar Usuario" : "Nueva Usuario"}</h1>
+            <h1>{params.id ? "Editar Usuario" : "Nuevo Usuario"}</h1>
             <label>Nombre</label>
             <input
               type="text"
